@@ -53,6 +53,6 @@
 
 @media screen and (min-width: 48rem){
   .lista-filmes article{
-    width: 20rem;
+    max-width: 20rem;
   }
 }
