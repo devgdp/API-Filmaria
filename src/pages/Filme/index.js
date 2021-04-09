@@ -1,4 +1,4 @@
-import { useParams, useHistory, Link } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import api from '../../services/api';
 import './filme-info.css';
@@ -40,7 +40,7 @@ export default function Filme(){
 
         if(hasFilme){
             alert('Este filme já foi salvo');
-            history.replace('/')
+            // history.replace('/')
             return;
             // para execução do código aqui 
         }
@@ -49,7 +49,7 @@ export default function Filme(){
 
         localStorage.setItem('filmes', JSON.stringify(filmesSalvos));
         alert('Filme salvo em seu favoritos');
-        history.replace('/')
+        history.replace('/favoritos')
     }
 
 
@@ -74,7 +74,7 @@ export default function Filme(){
                 Trailer
                 </a>
             </div>
-            </div>
+        </div>
 
     );
 }

@@ -1,0 +1,53 @@
+.container-salvos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  
+  }
+
+.lista-filmes-salvos{
+    width: 100%;
+    margin:.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .lista{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFF;
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    width: 100%;
+    border: 1px solid brown;
+    font-size: 1rem;
+  }
+  
+ 
+  .lista a, .lista button{
+    text-decoration: none;
+    color: #000;
+    border: 0;
+    background-color: transparent;
+    padding: .5rem;
+
+    display: inline-flex;
+  }
+  .lista a:hover, .lista button:hover{
+      background-color: brown;
+      color: #fff;
+      cursor: pointer;
+  }
+  
+  @media screen and (min-width: 48rem){
+    .lista {
+        max-width: 48rem;
+
+    }
+  }
