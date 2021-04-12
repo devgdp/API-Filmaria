@@ -1,5 +1,7 @@
 import { useParams, useHistory } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import {toast} from 'react-toastify';
+
 import api from '../../services/api';
 import './filme-info.css';
 
@@ -14,6 +16,7 @@ export default function Filme(){
             const response = await api.get(`r-api/?api=filmes/${id}`);
             if(response.data.length === 0 ){
                 // Filme não existe redireciona Rota
+                toast.error('Filme não existe, voçê foi redirecionado para pagina inicial')
                 history.replace('/');
                 return;
             }
@@ -23,9 +26,9 @@ export default function Filme(){
     
         loadFilmes();
 
-        return () =>{
-            console.log('componente desmontado')
-        }
+        // return () =>{
+        //     console.log('componente desmontado')
+        // }
 
     }, [id, history]);
     
@@ -39,7 +42,7 @@ export default function Filme(){
         const hasFilme = filmesSalvos.some( (filmesSalvo) =>  filmesSalvo.id === filme.id )
 
         if(hasFilme){
-            alert('Este filme já foi salvo');
+            toast.error('Este filme já foi salvo');
             // history.replace('/')
             return;
             // para execução do código aqui 
@@ -48,7 +51,7 @@ export default function Filme(){
         filmesSalvos.push(filme);
 
         localStorage.setItem('filmes', JSON.stringify(filmesSalvos));
-        alert('Filme salvo em seu favoritos');
+        toast.success('Filme salvo em seu favoritos');
         history.replace('/favoritos')
     }
 

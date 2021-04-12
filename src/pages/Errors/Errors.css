@@ -1,0 +1,26 @@
+.container-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: calc(100vh - 3rem);
+    background-color: brown;
+}
+
+/* 404 - NOT FOUND */ 
+.container-error h1{
+    color: #fff;
+    font-size: 2rem;
+}
+
+.container-error a {
+    color: #fff;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+.container-error a:hover{
+    background-color: brown;
+    color: #fff;
+}
