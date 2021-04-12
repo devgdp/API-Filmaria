@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [filmes, setFilmes] = useState([]);
+  const [loading, setLoading] = useState(true);
   
   useEffect(()=>{
 
@@ -13,11 +14,20 @@ export default function Home() {
         const response = await api.get('r-api/?api=filmes')
         // console.log(response.data);
         setFilmes(response.data);
+        setLoading(false);
     }
 
     loadFilmes();
 
   }, []);
+
+  if(loading){
+    return(
+        <div className="filme-info">
+            <h1>Carregando Filmes...</h1>
+        </div>
+    );  
+}
 
   return (
     <div className="container">
